@@ -1,0 +1,297 @@
+<template>
+  <main class="secondary" :class="background">
+    <v-flex class="rounded text-sm-center text-xs-center centerX elevation-22" style="position:absolute;top:50%;transform:translate(-50%,-50%);z-index:111;background:rgba(30,30,30,0.5);">
+      <div class="titlebar">
+        <div class="buttons">
+          <div class="close" @click="background = 'background1'">
+            <!-- close button link -->
+          </div>
+          <div class="minimize" @click="background = 'background2'">
+            <!-- minimize button link -->
+          </div>
+          <div class="zoom" @click="background = 'background3'">
+            <!-- zoom button link -->
+          </div>
+        </div>
+        <div style="padding-right:4em">Nikita Krupin</div>
+        <!-- window title -->
+      </div>
+      <img src="../assets/me.jpg" style="width:18em; height:18em;border-radius:100%;margin:1em;"/>
+      <h1 id="name" class="hidden-xs-only mb-2 link--yaku">
+        <span>N</span><span>i</span><span>k</span><span>i</span><span>t</span><span>a</span> <span>K</span><span>r</span><span>u</span><span>p</span><span>i</span><span>n</span>
+      </h1>
+      <p class="white--text typed mb-3" style="font-size:2em;"><span id="hithere" class="white--text"></span></p>
+      <v-layout row wrap>
+        <v-flex style="z-index:111;border-radius:1em;width:50vw;margin-bottom:1em;">
+          <a href="https://www.upwork.com/o/profiles/users/_~01d865e6d937b80c2c/" target="_blank">Upwork</a>
+          <a href="https://github.com/PickleNik" target="_blank">Github</a>
+          <a href="mailto:krupin.nikita0110@gmail.com">Email</a>
+          <a style="cursor:none;"><s>Twitter</s></a>
+          <a href="https://www.facebook.com/" target="_blank">Facebook</a>
+        </v-flex>
+      </v-layout>
+    </v-flex>
+    <vue-particles style="position:absolute;top:0;left:0;width:99vw;height:99vh;"
+      color="#fff"
+      :particleOpacity="0.5"
+      :particlesNumber="33"
+      shapeType="circle"
+      :particleSize="11"
+      linesColor="#dedede"
+      :linesWidth="1"
+      :lineLinked="true"
+      :lineOpacity="0.4"
+      :linesDistance="150"
+      :moveSpeed="3"
+      :hoverEffect="true"
+      hoverMode="repulse"
+      :clickEffect="true"
+      clickMode="repulse"
+    >
+    </vue-particles>
+  </main>
+</template>
+
+<script>
+import Typed from 'typed.js'
+
+export default {
+  data () {
+    return {
+      background: '',
+      typedOptions: ['Hi there!', 'I\'m a web developer', 'I\'m from Rockville', 'I like skateboarding', 'Hire me on Upwork', 'Fork me on GitHub', 'Email me', 'Follow my Twitter', 'Check out links below', '']
+    }
+  },
+  mounted () {
+    // eslint-disable-next-line
+    let typed = new Typed('#hithere', {
+      strings: this.typedOptions,
+      typeSpeed: 11,
+      backSpeed: 11,
+      startDelay: 3000,
+      backDelay: 2000,
+      smartBackspace: true,
+      showCursor: false
+    })
+  }
+}
+</script>
+<style scoped>
+main{
+  background:url('https://images.unsplash.com/photo-1499331940637-67e8c9351dc9?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=e43b62d5c22c0956ede3bbec94709159&auto=format&fit=crop&w=1950&q=80')center center no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  transition-timing-function: ease-in-out;
+  transition-duration: .8s;
+  transition-property: all;
+  height:100%;
+}
+.background1{
+  background:url('https://images.unsplash.com/photo-1499331940637-67e8c9351dc9?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=e43b62d5c22c0956ede3bbec94709159&auto=format&fit=crop&w=1950&q=80')center center no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.background2{
+  background:url('https://images.unsplash.com/photo-1458602534355-532b3ef5b604?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=04e6b3a3e1976c33455a0aa1d47e00a0&auto=format&fit=crop&w=1950&q=80')center center no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.background3{
+  background:url('https://www.hdwallpapers.in/walls/apple_mac_os_x_el_capitan-wide.jpg')center center no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+/*titlebar Start*/
+
+.titlebar {
+  background: transparent;
+  color: #eee;
+  font-size: 11pt;
+  line-height: 20px;
+  text-align: center;
+  width: 100%;
+	padding:2em;
+	border: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  cursor: default;
+}
+
+.buttons {
+  padding-left: 8px;
+  padding-top: 3px;
+  float: left;
+  line-height: 0px;
+}
+
+.close {
+  background: #ff5c5c;
+  font-size: 9pt;
+  width: 1em;
+  height: 1em;
+  border: 1px solid #e33e41;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.close:active {
+  background: #c14645;
+  border: 1px solid #b03537;
+  color: #4e0002;
+}
+
+.minimize {
+  background: #ffbd4c;
+  font-size: 9pt;
+  line-height: 11px;
+  margin-left: 4px;
+  width: 1em;
+  height: 1em;
+  border: 1px solid #e09e3e;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.minimize:active {
+  background: #c08e38;
+  border: 1px solid #af7c33;
+  color: #5a2607;
+}
+
+.zoom {
+  background: #00ca56;
+  font-size: 9pt;
+  line-height: 11px;
+  margin-left: 4px;
+  width: 1em;
+  height: 1em;
+  border: 1px solid #14ae46;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.zoom:active {
+  background: #029740;
+  border: 1px solid #128435;
+  color: #003107;
+}
+
+/*titlebar END*/
+#name{
+  font-size: 2.7em;
+  color: #eee;
+  width: 100%;
+  text-align: center;
+}
+.typed::after {
+	content: '❤️';
+	display: inline;
+  animation: blink 1s infinite;
+}
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+a{
+  margin:1em;
+  transition-duration: .2s;
+  transition-property: all;
+  text-decoration:none;
+  font-size: 1.3em;
+}
+a:hover{
+  color:pink;
+}
+/* Yaku */
+.link--yaku {
+	color: #bababa;
+	overflow: hidden;
+  cursor:none;
+}
+.link--yaku span {
+	display: inline-block;
+	position: relative;
+	-webkit-transform: perspective(1000px) rotate3d(0,1,0,0deg);
+	transform: perspective(1000px) rotate3d(0,1,0,0deg);
+	-webkit-transition: -webkit-transform 0.5s, color 0.5s;
+	transition: transform 0.5s, color 0.5s;
+}
+
+.link--yaku:hover span {
+	color: pink;
+	-webkit-transform: perspective(1000px) rotate3d(0,1,0,360deg);
+	transform: perspective(1000px) rotate3d(0,1,0,360deg);
+}
+
+.link--yaku span:first-child,
+.link--yaku:hover span:first-child {
+	-webkit-transition-delay: 0s;
+	transition-delay: 0s;
+}
+.link--yaku span:nth-child(2),
+.link--yaku:hover span:nth-child(2) {
+	-webkit-transition-delay: 0.1s;
+	transition-delay: 0.1s;
+}
+.link--yaku span:nth-child(3),
+.link--yaku:hover span:nth-child(3) {
+	-webkit-transition-delay: 0.2s;
+	transition-delay: 0.2s;
+}
+.link--yaku span:nth-child(4),
+.link--yaku:hover span:nth-child(4) {
+	-webkit-transition-delay: 0.3s;
+	transition-delay: 0.3s;
+}
+.link--yaku span:nth-child(5),
+.link--yaku:hover span:nth-child(5) {
+	-webkit-transition-delay: 0.4s;
+	transition-delay: 0.4s;
+}
+.link--yaku span:nth-child(6),
+.link--yaku:hover span:nth-child(6) {
+	-webkit-transition-delay: 0.5s;
+	transition-delay: 0.5s;
+}
+.link--yaku span:nth-child(7),
+.link--yaku:hover span:nth-child(7) {
+	-webkit-transition-delay: 0.6s;
+	transition-delay: 0.6s;
+}
+.link--yaku span:nth-child(8),
+.link--yaku:hover span:nth-child(8) {
+	-webkit-transition-delay: 0.7s;
+	transition-delay: 0.7s;
+}.link--yaku span:nth-child(9),
+.link--yaku:hover span:nth-child(9) {
+	-webkit-transition-delay: 0.8s;
+	transition-delay: 0.8s;
+}
+.link--yaku span:nth-child(10),
+.link--yaku:hover span:nth-child(10) {
+	-webkit-transition-delay: 0.9s;
+	transition-delay: 0.9s;
+}
+.link--yaku span:nth-child(11),
+.link--yaku:hover span:nth-child(11) {
+	-webkit-transition-delay: 1s;
+	transition-delay: 1s;
+}
+.link--yaku span:nth-child(12),
+.link--yaku:hover span:nth-child(12) {
+	-webkit-transition-delay: 1.1s;
+	transition-delay: 1.1s;
+}
+</style>
