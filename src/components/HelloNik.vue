@@ -1,7 +1,8 @@
 <template>
   <main class="secondary" :class="background">
+    <v-container fluid>
     <v-layout>
-    <v-flex xs10 offset-xs1 sm8 offset-sm2 md6 offset-md3 lg6 offset-lg3>
+    <v-flex xs10 offset-xs1 sm6 offset-sm3 md6 offset-md3 lg6 offset-lg3>
       <div id="window" class="rounded text-sm-center text-xs-center elevation-22">
       <div class="titlebar">
         <div class="buttons">
@@ -19,10 +20,10 @@
         <!-- window title -->
       </div>
       <img id="face" src="../assets/me.jpg" style="width:18em; height:18em;border-radius:100%;margin:1em;"/>
-      <h1 id="name" class="hidden-xs-only mb-2 link--yaku">
+      <h1 id="name" class="mb-2 link--yaku">
         <span>N</span><span>i</span><span>k</span><span>i</span><span>t</span><span>a</span> <span>K</span><span>r</span><span>u</span><span>p</span><span>i</span><span>n</span>
       </h1>
-      <p class="white--text typed mb-3 ml-3 mr-3" style="font-size:2em;"><span id="hithere" class="white--text"></span></p>
+      <p class="hidden-xs-only white--text typed mb-3 ml-3 mr-3" style="font-size:2em;"><span id="hithere" class="white--text"></span></p>
       <v-layout row wrap>
         <v-flex style="z-index:111;border-radius:1em;width:50vw;margin-bottom:1em;">
           <a id="a1" href="https://www.linkedin.com/in/nikita-krupin/" target="_blank">LinkedIn</a>
@@ -35,6 +36,7 @@
     </div>
     </v-flex>
   </v-layout>
+</v-container>
     <vue-particles style="position:absolute;top:0;left:0;width:99vw;height:99vh;"
       color="#fff"
       :particleOpacity="0.5"
