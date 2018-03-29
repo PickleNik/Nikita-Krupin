@@ -1,6 +1,8 @@
 <template>
   <main class="secondary" :class="background">
-    <v-flex class="rounded text-sm-center text-xs-center centerX elevation-22" style="position:absolute;top:50%;transform:translate(-50%,-50%);z-index:111;background:rgba(30,30,30,0.5);">
+    <v-layout>
+    <v-flex xs10 offset-xs1 sm8 offset-sm2 md6 offset-md3 lg6 offset-lg3>
+      <div id="window" class="rounded text-sm-center text-xs-center elevation-22">
       <div class="titlebar">
         <div class="buttons">
           <div class="close" @click="background = 'background1'">
@@ -16,25 +18,27 @@
         <div style="padding-right:4em">Nikita Krupin</div>
         <!-- window title -->
       </div>
-      <img src="../assets/me.jpg" style="width:18em; height:18em;border-radius:100%;margin:1em;"/>
+      <img id="face" src="../assets/me.jpg" style="width:18em; height:18em;border-radius:100%;margin:1em;"/>
       <h1 id="name" class="hidden-xs-only mb-2 link--yaku">
         <span>N</span><span>i</span><span>k</span><span>i</span><span>t</span><span>a</span> <span>K</span><span>r</span><span>u</span><span>p</span><span>i</span><span>n</span>
       </h1>
-      <p class="white--text typed mb-3" style="font-size:2em;"><span id="hithere" class="white--text"></span></p>
+      <p class="white--text typed mb-3 ml-3 mr-3" style="font-size:2em;"><span id="hithere" class="white--text"></span></p>
       <v-layout row wrap>
         <v-flex style="z-index:111;border-radius:1em;width:50vw;margin-bottom:1em;">
-          <a href="https://www.upwork.com/o/profiles/users/_~01d865e6d937b80c2c/" target="_blank">Upwork</a>
-          <a href="https://github.com/PickleNik" target="_blank">Github</a>
-          <a href="mailto:krupin.nikita0110@gmail.com">Email</a>
-          <a style="cursor:none;"><s>Twitter</s></a>
-          <a href="https://www.facebook.com/" target="_blank">Facebook</a>
+          <a id="a1" href="https://www.linkedin.com/in/nikita-krupin/" target="_blank">LinkedIn</a>
+          <a id="a2" href="https://www.upwork.com/o/profiles/users/_~01d865e6d937b80c2c/" target="_blank">Upwork</a>
+          <a id="a3" href="https://github.com/PickleNik" target="_blank">Github</a>
+          <a id="a4" href="mailto:krupin.nikita0110@gmail.com">Email</a>
+          <a id="a5" href="https://www.facebook.com/" target="_blank">Facebook</a>
         </v-flex>
       </v-layout>
+    </div>
     </v-flex>
+  </v-layout>
     <vue-particles style="position:absolute;top:0;left:0;width:99vw;height:99vh;"
       color="#fff"
       :particleOpacity="0.5"
-      :particlesNumber="33"
+      :particlesNumber="50"
       shapeType="circle"
       :particleSize="11"
       linesColor="#dedede"
@@ -59,7 +63,7 @@ export default {
   data () {
     return {
       background: '',
-      typedOptions: ['Hi there!', 'I\'m a web developer', 'I\'m from Rockville', 'I like skateboarding', 'Hire me on Upwork', 'Fork me on GitHub', 'Email me', 'Follow my Twitter', 'Check out links below', '']
+      typedOptions: ['Hi there!', 'I\'m Web Developer', 'I like skateboarding', 'Checkout my LinkedIn', 'Hire me on Upwork', 'Fork me on GitHub', 'Email me', 'Follow my Facebook', 'Links are below', '']
     }
   },
   mounted () {
@@ -68,7 +72,7 @@ export default {
       strings: this.typedOptions,
       typeSpeed: 11,
       backSpeed: 11,
-      startDelay: 3000,
+      startDelay: 5000,
       backDelay: 2000,
       smartBackspace: true,
       showCursor: false
@@ -87,6 +91,46 @@ main{
   transition-duration: .8s;
   transition-property: all;
   height:100%;
+}
+#window{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  z-index:111;
+  background:rgba(30,30,30,0.5);
+  animation: zoomInDown 1s ease 1;
+}
+#face{
+  opacity: 0;
+  animation: rollIn 1s ease 1s 1 forwards;
+}
+#name{
+  font-size: 2.7em;
+  color: #eee;
+  width: 100%;
+  text-align: center;
+  opacity:0;
+  animation: lightSpeedIn 1s ease 1s 1 forwards;
+}
+#a1{
+  opacity:0;
+  animation: bounceIn 1s ease 2s 1 forwards;
+}
+#a2{
+  opacity:0;
+  animation: bounceIn 1s ease 2.5s 1 forwards;
+}
+#a3{
+  opacity:0;
+  animation: bounceIn 1s ease 3s 1 forwards;
+}
+#a4{
+  opacity:0;
+  animation: bounceIn 1s ease 3.5s 1 forwards;
+}
+#a5{
+  opacity:0;
+  animation: bounceIn 1s ease 4s 1 forwards;
 }
 .background1{
   background:url('https://images.unsplash.com/photo-1499331940637-67e8c9351dc9?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=e43b62d5c22c0956ede3bbec94709159&auto=format&fit=crop&w=1950&q=80')center center no-repeat;
@@ -188,12 +232,6 @@ main{
 }
 
 /*titlebar END*/
-#name{
-  font-size: 2.7em;
-  color: #eee;
-  width: 100%;
-  text-align: center;
-}
 .typed::after {
 	content: '❤️';
 	display: inline;
@@ -206,8 +244,6 @@ main{
 }
 a{
   margin:1em;
-  transition-duration: .2s;
-  transition-property: all;
   text-decoration:none;
   font-size: 1.3em;
 }
@@ -293,5 +329,82 @@ a:hover{
 .link--yaku:hover span:nth-child(12) {
 	-webkit-transition-delay: 1.1s;
 	transition-delay: 1.1s;
+}
+@keyframes zoomInDown {
+  from {
+    opacity: 0;
+    transform: scale3d(.1, .1, .1) translate3d(0, -1000px, 0);
+    animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);
+  }
+
+  60% {
+    opacity: 1;
+    transform: scale3d(.475, .475, .475) translate3d(0, 60px, 0);
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
+  }
+}
+@keyframes rollIn {
+  from {
+    opacity: 0;
+    transform: translate3d(-100%, 0, 0) rotate3d(0, 0, 1, -120deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes lightSpeedIn {
+  from {
+    transform: translate3d(100%, 0, 0) skewX(-30deg);
+    opacity: 0;
+  }
+
+  60% {
+    transform: skewX(20deg);
+    opacity: 1;
+  }
+
+  80% {
+    transform: skewX(-5deg);
+    opacity: 1;
+  }
+
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+@keyframes bounceIn {
+  from, 20%, 40%, 60%, 80%, to {
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  0% {
+    opacity: 0;
+    transform: scale3d(.3, .3, .3);
+  }
+
+  20% {
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+
+  40% {
+    transform: scale3d(.9, .9, .9);
+  }
+
+  60% {
+    opacity: 1;
+    transform: scale3d(1.03, 1.03, 1.03);
+  }
+
+  80% {
+    transform: scale3d(.97, .97, .97);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
 }
 </style>
