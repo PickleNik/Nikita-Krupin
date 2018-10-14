@@ -1,9 +1,6 @@
 <template>
   <main class="secondary" :class="background">
-    <v-container fluid>
-    <v-layout>
-    <v-flex xs10 offset-xs1 sm6 offset-sm3 md6 offset-md3 lg6 offset-lg3>
-      <div id="window" class="rounded text-sm-center text-xs-center elevation-22">
+    <v-flex id="window" sm6 offset-sm3 md6 offset-md3 lg6 offset-lg3  class=" hidden-xs-only rounded text-sm-center text-xs-center elevation-22">
       <div class="titlebar">
         <div class="buttons">
           <div class="close" @click="background = 'background1'">
@@ -23,6 +20,7 @@
       <h1 id="name" class="mb-2 link--yaku">
         <span>N</span><span>i</span><span>k</span><span>i</span><span>t</span><span>a</span> <span>K</span><span>r</span><span>u</span><span>p</span><span>i</span><span>n</span>
       </h1>
+      <p id="bio"><v-icon class="pink--text pb-2" >web</v-icon> Web and <v-icon class="pink--text pb-2" >phone_iphone</v-icon> Mobile Developer, <v-icon class="pink--text pb-2" >color_lens</v-icon> Designer</p>
       <p class="hidden-xs-only white--text typed mb-3 ml-3 mr-3" style="font-size:2em;"><span id="hithere" class="white--text"></span></p>
       <v-layout row wrap>
         <v-flex style="z-index:111;border-radius:1em;width:50vw;margin-bottom:1em;">
@@ -30,15 +28,74 @@
           <a id="a2" href="https://www.upwork.com/o/profiles/users/_~01d865e6d937b80c2c/" target="_blank">Upwork</a>
           <a id="a3" href="https://github.com/PickleNik" target="_blank">Github</a>
           <a id="a4" href="mailto:krupin.nikita0110@gmail.com">Email</a>
-          <a id="a5" href="https://www.facebook.com/" target="_blank">Facebook</a>
         </v-flex>
       </v-layout>
-    </div>
+      <v-layout column>
+        <v-flex id="about" style="width: 50vw;" xs6>
+          <h1 class="white--text">About</h1>
+          <span class="white--text">
+            I make clear and high quality UI UX design perfectly adjusted for mobile devices and highly responsible.
+            Web Apps with progressive javascript framework - Vue.js and best CSS libraries, such as Bootstrap and Material Design.
+            Backend by Firebase with scalable realtime database and ease user managing.
+          </span>
+        </v-flex>
+        <v-flex id="projects">
+          <h1 class="white--text">Projects</h1>
+          <v-layout row wrap>
+            <v-flex></v-flex>
+          </v-layout>
+        </v-flex>
+      </v-layout>
     </v-flex>
-  </v-layout>
-</v-container>
+
+
+
+    <v-flex id="windowxs" class="scroll-y hidden-sm-and-up text-xs-center">
+      <div class="titlebar">
+        <div class="buttons">
+          <div class="close" @click="background = 'background1'">
+            <!-- close button link -->
+          </div>
+          <div class="minimize" @click="background = 'background2'">
+            <!-- minimize button link -->
+          </div>
+          <div class="zoom" @click="background = 'background3'">
+            <!-- zoom button link -->
+          </div>
+        </div>
+        <div style="padding-right:4em">Nikita Krupin</div>
+        <!-- window title -->
+      </div>
+      <img id="face" src="../assets/me.jpg" style="width:18em; height:18em;border-radius:100%;margin:1em;"/>
+      <h1 id="name" class="mb-2 link--yaku">
+        <span>N</span><span>i</span><span>k</span><span>i</span><span>t</span><span>a</span> <span>K</span><span>r</span><span>u</span><span>p</span><span>i</span><span>n</span>
+      </h1>
+      <p id="bio"><v-icon class="pink--text pb-2" >web</v-icon> Web and <v-icon class="pink--text pb-2" >phone_iphone</v-icon> Mobile Developer</p>
+      <p class="hidden-xs-only white--text typed mb-3 ml-3 mr-3" style="font-size:2em;"><span id="hithere" class="white--text"></span></p>
+      <v-layout row wrap>
+        <v-flex style="z-index:111;border-radius:1em;width:50vw;margin-bottom:1em;">
+          <a id="a1" href="https://www.linkedin.com/in/nikita-krupin/" target="_blank">LinkedIn</a>
+          <a id="a2" href="https://www.upwork.com/o/profiles/users/_~01d865e6d937b80c2c/" target="_blank">Upwork</a>
+          <a id="a3" href="https://github.com/PickleNik" target="_blank">Github</a>
+          <a id="a4" href="mailto:krupin.nikita0110@gmail.com">Email</a>
+        </v-flex>
+      </v-layout>
+      <v-layout column>
+        <v-flex id="about">
+          <h1 class="white--text">About</h1>
+          <span class="white--text">
+            I make clear and high quality UI UX design perfectly adjusted for mobile devices and highly responsible.
+            Web Apps with progressive javascript framework - Vue.js and best CSS libraries, such as Bootstrap and Material Design.
+            Backend by Firebase with scalable realtime database and ease user managing.
+          </span>
+        </v-flex>
+        <v-flex id="projects">
+          <h1 class="white--text">Projects</h1>
+        </v-flex>
+      </v-layout>
+    </v-flex>
     <vue-particles style="position:absolute;top:0;left:0;width:99vw;height:99vh;"
-      color="#fff"
+      color="#fff" class="hidden-xs-only"
       :particleOpacity="0.5"
       :particlesNumber="50"
       shapeType="circle"
@@ -65,12 +122,12 @@ export default {
   data () {
     return {
       background: '',
-      typedOptions: ['Hi there!', 'I\'m Web Developer', 'I like skateboarding', 'Checkout my LinkedIn', 'Hire me on Upwork', 'Fork me on GitHub', 'Email me', 'Follow my Facebook', 'Links are below', '']
+      typedOptions: ['Checkout my LinkedIn', 'Hire me on Upwork', 'Fork me on GitHub', 'Email me', 'Links are below', '']
     }
   },
   mounted () {
     // eslint-disable-next-line
-    let typed = new Typed('#hithere', {
+    new Typed('#hithere', {
       strings: this.typedOptions,
       typeSpeed: 11,
       backSpeed: 11,
@@ -82,7 +139,7 @@ export default {
   }
 }
 </script>
-<style scoped>
+<style>
 main{
   background:url('https://images.unsplash.com/photo-1499331940637-67e8c9351dc9?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=e43b62d5c22c0956ede3bbec94709159&auto=format&fit=crop&w=1950&q=80')center center no-repeat;
   -webkit-background-size: cover;
@@ -102,6 +159,12 @@ main{
   background:rgba(30,30,30,0.5);
   animation: zoomInDown 1s ease 1;
 }
+#windowxs{
+  z-index:111;
+  background:rgba(30,30,30,0.5);
+  animation: zoomInDown 1s ease 1;
+  height:100vh;
+}
 #face{
   opacity: 0;
   animation: rollIn 1s ease 1s 1 forwards;
@@ -113,6 +176,14 @@ main{
   text-align: center;
   opacity:0;
   animation: lightSpeedIn 1s ease 1s 1 forwards;
+}
+#bio{
+  font-size: 1.5em;
+  color: #eee;
+  width: 100%;
+  text-align: center;
+  opacity:0;
+  animation: lightSpeedInLeft 1s ease 1s 1 forwards;
 }
 #a1{
   opacity:0;
@@ -133,6 +204,22 @@ main{
 #a5{
   opacity:0;
   animation: bounceIn 1s ease 4s 1 forwards;
+}
+#about{
+  padding-left: 2em;
+  padding-right: 2em;
+  opacity:0;
+  animation: bounceIn 1s ease 5s 1 forwards;
+  margin-bottom:1em;
+  text-align: justify;
+}
+#projects{
+  padding-left: 2em;
+  padding-right: 2em;
+  opacity:0;
+  animation: bounceIn 1s ease 6s 1 forwards;
+  margin-bottom:1em;
+  text-align: justify;
 }
 .background1{
   background:url('https://images.unsplash.com/photo-1499331940637-67e8c9351dc9?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=e43b62d5c22c0956ede3bbec94709159&auto=format&fit=crop&w=1950&q=80')center center no-repeat;
@@ -369,6 +456,27 @@ a:hover{
 
   80% {
     transform: skewX(-5deg);
+    opacity: 1;
+  }
+
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+@keyframes lightSpeedInLeft {
+  from {
+    transform: translate3d(-100%, 0, 0) skewX(30deg);
+    opacity: 0;
+  }
+
+  60% {
+    transform: skewX(-20deg);
+    opacity: 1;
+  }
+
+  80% {
+    transform: skewX(5deg);
     opacity: 1;
   }
 

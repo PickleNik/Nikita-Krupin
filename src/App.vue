@@ -19,6 +19,15 @@ export default {
 *{
   font-family: 'Comfortaa', sans-serif;
 }
+html {
+    overflow: hidden;
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    overflow: auto;
+}
 .centerX{
   margin-left:50%;
   transform:translateX(-50%);
