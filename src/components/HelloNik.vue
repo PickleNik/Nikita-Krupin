@@ -30,22 +30,6 @@
           <a id="a4" href="mailto:krupin.nikita0110@gmail.com">Email</a>
         </v-flex>
       </v-layout>
-      <v-layout column>
-        <v-flex id="about" style="width: 50vw;" xs6>
-          <h1 class="white--text">About</h1>
-          <span class="white--text">
-            I make clear and high quality UI UX design perfectly adjusted for mobile devices and highly responsible.
-            Web Apps with progressive javascript framework - Vue.js and best CSS libraries, such as Bootstrap and Material Design.
-            Backend by Firebase with scalable realtime database and ease user managing.
-          </span>
-        </v-flex>
-        <v-flex id="projects">
-          <h1 class="white--text">Projects</h1>
-          <v-layout row wrap>
-            <v-flex></v-flex>
-          </v-layout>
-        </v-flex>
-      </v-layout>
     </v-flex>
 
 
@@ -78,19 +62,6 @@
           <a id="a2" href="https://www.upwork.com/o/profiles/users/_~01d865e6d937b80c2c/" target="_blank">Upwork</a>
           <a id="a3" href="https://github.com/PickleNik" target="_blank">Github</a>
           <a id="a4" href="mailto:krupin.nikita0110@gmail.com">Email</a>
-        </v-flex>
-      </v-layout>
-      <v-layout column>
-        <v-flex id="about">
-          <h1 class="white--text">About</h1>
-          <span class="white--text">
-            I make clear and high quality UI UX design perfectly adjusted for mobile devices and highly responsible.
-            Web Apps with progressive javascript framework - Vue.js and best CSS libraries, such as Bootstrap and Material Design.
-            Backend by Firebase with scalable realtime database and ease user managing.
-          </span>
-        </v-flex>
-        <v-flex id="projects">
-          <h1 class="white--text">Projects</h1>
         </v-flex>
       </v-layout>
     </v-flex>
@@ -151,7 +122,17 @@ main{
   transition-property: all;
   height:100%;
 }
+.tutstree{
+  background: url('../assets/tutstree.png') black no-repeat; background-size: contain; background-position: center; height:15em; width:15em; cursor: pointer;
+  animation: bounceIn 1s ease 4.8s 1 forwards;
+}
+.enly{
+  background: url('../assets/enly.png') black no-repeat; background-size: contain; background-position: center; height:15em; width:15em; cursor: pointer;
+  animation: bounceIn 1s ease 5s 1 forwards;
+}
 #window{
+  overflow-y: scroll;
+  max-height:100vh;
   position:absolute;
   top:50%;
   transform:translateY(-50%);
@@ -160,6 +141,8 @@ main{
   animation: zoomInDown 1s ease 1;
 }
 #windowxs{
+  overflow-y: scroll;
+  max-height:100vh;
   z-index:111;
   background:rgba(30,30,30,0.5);
   animation: zoomInDown 1s ease 1;
@@ -209,7 +192,7 @@ main{
   padding-left: 2em;
   padding-right: 2em;
   opacity:0;
-  animation: bounceIn 1s ease 5s 1 forwards;
+  animation: fadeInUp .5s ease 4.4s 1 forwards;
   margin-bottom:1em;
   text-align: justify;
 }
@@ -217,7 +200,7 @@ main{
   padding-left: 2em;
   padding-right: 2em;
   opacity:0;
-  animation: bounceIn 1s ease 6s 1 forwards;
+  animation: fadeInUp .5s ease 4.6s 1 forwards;
   margin-bottom:1em;
   text-align: justify;
 }
@@ -515,6 +498,17 @@ a:hover{
   to {
     opacity: 1;
     transform: scale3d(1, 1, 1);
+  }
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
   }
 }
 </style>

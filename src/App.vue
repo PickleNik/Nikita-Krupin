@@ -36,23 +36,8 @@ body {
   border-radius:3em;
 }
 /*scrollbar*/
-::-webkit-scrollbar-track{
-  border-radius: 10px;
-  background-color: inherit;
-}
 ::-webkit-scrollbar{
-  width: 8px;
-  background-color:#333;
-}
-::-webkit-scrollbar-thumb{
-  border-radius: 20px;
-  background-color: #333;
-}
-::-webkit-scrollbar-thumb:hover{
-  background:  #ededed;
-}
-::-webkit-scrollbar-thumb:active {
-  background: #fefefe;
+  width: 0;
 }
 ::selection{
   background:transparent;
